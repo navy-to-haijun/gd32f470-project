@@ -1,0 +1,26 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/user/**",
+                "${workspaceFolder}//Hardware/LED/**",
+                "${workspaceFolder}/Firmware/GD32F4xx_standard_peripheral/Include/**",
+                "${workspaceFolder}/Firmware/CMSIS/**",
+                "${workspaceFolder}/Firmware/CMSIS/GD/GD32F4xx/Include/**"
+                
+            ],
+            "defines": [
+                "GD32F470",
+                "USE_STDPERIPH_DRIVER"
+            ],
+            // "compilerPath": "/usr/bin/gcc",
+            "cStandard": "c11",
+            "cppStandard": "gnu++11"
+            // "intelliSenseMode": "linux-gcc-x64",
+            // "compileCommands": "${workspaceFolder}/build/compile_commands.json"
+        }
+    ],
+    "version": 4
+}
