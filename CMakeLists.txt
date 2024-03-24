@@ -41,6 +41,7 @@ add_executable(${CMAKE_PROJECT_NAME})
 add_subdirectory(Firmware)
 add_subdirectory(user)
 add_subdirectory(Hardware)
+add_subdirectory(3rdPary/RTT)
 
 # Link directories setup
 target_link_directories(${CMAKE_PROJECT_NAME} PRIVATE
@@ -68,6 +69,22 @@ target_link_libraries(${CMAKE_PROJECT_NAME}
     gd32f470HAL
     user
     hardware
+    RTT
 
     # Add user defined libraries
 )
+# 自定义清除build文件命令
+add_custom_target( clc
+    COMMAND echo " clean ${CMAKE_BINARY_DIR} file!"
+    COMMAND rm -rf ${CMAKE_BINARY_DIR}/*
+)
+
+# 自定义下载程序命令
+add_custom_target( download 
+    COMMAND echo "download ${CMAKE_PROJECT_NAME}.elf by pyocd!"
+    # COMMAND pyocd load ${CMAKE_PROJECT_NAME}.elf --target gd32f470zg --pack ${CMAKE_SOURCE_DIR}/pyocd/GigaDevice.GD32F4xx_DFP.3.2.0.pack
+    COMMAND pyocd load ${CMAKE_BINARY_DIR}/${CMAKE_PROJECT_NAME}.elf
+    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/pyocd
+)
+
+

@@ -1,0 +1,6 @@
+# target
+
+target_override:  gd32f470zg
+auto_unlock: false
+pack: ./GigaDevice.GD32F4xx_DFP.3.2.0.pack
+

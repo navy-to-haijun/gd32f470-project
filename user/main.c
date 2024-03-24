@@ -8,6 +8,7 @@
 #include "systick.h"
 #include <stdio.h>
 #include "main.h"
+#include "SEGGER_RTT.h"
 
 int8_t a = 0;
 
@@ -20,10 +21,10 @@ int main(void)
    while(1)
    {
         gpio_bit_write(GPIOD, GPIO_PIN_7, SET); 
-        delay_1ms(100);
+        delay_1ms(500);
         gpio_bit_write(GPIOD, GPIO_PIN_7, RESET); 
-        delay_1ms(100);
+        delay_1ms(500);
         a++;
+        SEGGER_RTT_printf(0, "a = %d\n");
    }
-
 }
