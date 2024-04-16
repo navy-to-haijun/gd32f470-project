@@ -42,6 +42,7 @@ add_subdirectory(Firmware)
 add_subdirectory(user)
 add_subdirectory(Hardware)
 add_subdirectory(3rdPary/RTT)
+add_subdirectory(3rdPary/lwrb)
 
 # Link directories setup
 target_link_directories(${CMAKE_PROJECT_NAME} PRIVATE
@@ -70,6 +71,7 @@ target_link_libraries(${CMAKE_PROJECT_NAME}
     user
     hardware
     RTT
+    lwrb
 
     # Add user defined libraries
 )
@@ -84,6 +86,13 @@ add_custom_target( download
     COMMAND echo "download ${CMAKE_PROJECT_NAME}.elf by pyocd!"
     # COMMAND pyocd load ${CMAKE_PROJECT_NAME}.elf --target gd32f470zg --pack ${CMAKE_SOURCE_DIR}/pyocd/GigaDevice.GD32F4xx_DFP.3.2.0.pack
     COMMAND pyocd load ${CMAKE_BINARY_DIR}/${CMAKE_PROJECT_NAME}.elf
+    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/pyocd
+)
+
+# 自定义RTT命令
+add_custom_target( rtt 
+    COMMAND echo "rtt ${CMAKE_PROJECT_NAME}.elf by pyocd!"
+    COMMAND pyocd rtt
     WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/pyocd
 )
 
