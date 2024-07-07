@@ -14,7 +14,8 @@
             ],
             "defines": [
                 "GD32F470",
-                "USE_STDPERIPH_DRIVER"
+                "USE_STDPERIPH_DRIVER",
+                "LWRB_DEV",
             ],
             // "compilerPath": "/usr/bin/gcc",
             "cStandard": "c11",

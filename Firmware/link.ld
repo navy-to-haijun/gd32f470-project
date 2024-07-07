@@ -8,7 +8,7 @@ MEMORY
 {
     CODE (rx) : ORIGIN = 0x08000000, LENGTH = 1024k /* 1024KB flash */
     DATA (rw) : ORIGIN = 0x20000000, LENGTH =  448k /* 448KB sram */
-    SDRAM (xrw) : ORIGIN = 0XC0000000, LENGTH = 1M  /*SDRM分配地址和大小，权限为可读、可写、可执行*/
+    SDRAM (xrw) : ORIGIN = 0XC0000000, LENGTH = 16M  /*SDRM分配地址和大小，权限为可读、可写、可执行*/
 }
 ENTRY(Reset_Handler)
 _system_stack_size = 0x200;

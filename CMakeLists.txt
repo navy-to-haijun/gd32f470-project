@@ -70,7 +70,6 @@ target_link_libraries(${CMAKE_PROJECT_NAME}
     user
     hardware
     RTT
-
     # Add user defined libraries
 )
 # 自定义清除build文件命令
