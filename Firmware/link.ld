@@ -8,6 +8,7 @@ MEMORY
 {
     CODE (rx) : ORIGIN = 0x08000000, LENGTH = 1024k /* 1024KB flash */
     DATA (rw) : ORIGIN = 0x20000000, LENGTH =  448k /* 448KB sram */
+    SDRAM (xrw) : ORIGIN = 0XC0000000, LENGTH = 1M  /*SDRM分配地址和大小，权限为可读、可写、可执行*/
 }
 ENTRY(Reset_Handler)
 _system_stack_size = 0x200;
@@ -103,6 +104,16 @@ SECTIONS
         *(.bss.init)
     } > DATA
     __bss_end = .;
+
+     .sdram :
+    {
+        . = ALIGN(4);               /*四字节对齐*/
+        *(.sdram)                   /*__attribute__((section(".sdram_data"))) 指定的变量会被放到这个段中*/
+        *(.sdram*)
+    } > SDRAM
+
+    _ssdram = .;                    /*标记起始地址*/
+    _esdram = . + SIZEOF(.sdram);   /*标记结束地址*/
 
     _end = .;
 

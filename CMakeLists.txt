@@ -80,10 +80,17 @@ add_custom_target( clc
 )
 
 # 自定义下载程序命令
-add_custom_target( download 
+add_custom_target( d 
     COMMAND echo "download ${CMAKE_PROJECT_NAME}.elf by pyocd!"
     # COMMAND pyocd load ${CMAKE_PROJECT_NAME}.elf --target gd32f470zg --pack ${CMAKE_SOURCE_DIR}/pyocd/GigaDevice.GD32F4xx_DFP.3.2.0.pack
     COMMAND pyocd load ${CMAKE_BINARY_DIR}/${CMAKE_PROJECT_NAME}.elf
+    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/pyocd
+)
+
+# 自定义打印指令
+add_custom_target( p 
+    COMMAND echo "USe RTT by pyocd!"
+    COMMAND pyocd rtt 
     WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/pyocd
 )
 
