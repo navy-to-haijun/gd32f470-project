@@ -5,9 +5,8 @@
  * Definitions
  ******************************************************************************/
 
-uint16_t ltdc_lcd_framebuf0[800][480] __attribute__((section(".sdram")));
-// uint16_t ltdc_lcd_framebuf0[800][480];
-
+uint16_t ltdc_lcd_framebuf0[LCD_WIDTH][LCD_HEIGHT] __attribute__((section(".sdram")));
+// uint16_t (*ltdc_lcd_framebuf0)[LCD_HEIGHT] = (uint16_t (*)[LCD_HEIGHT])LCD_FRAME_BUF_ADDR;
 
 static void tli_gpio_config(void);
 static void tli_config(void);

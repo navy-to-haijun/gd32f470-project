@@ -119,7 +119,7 @@ int main(void)
     }
     lcd_disp_config();
 
-    tli_draw_Rectangle(0,0,400,480,0xFFFF,1);
+    tli_draw_Rectangle(0,0,400,480,0x8800,1);
     tli_draw_Rectangle(400,0,800,480,0x001F,1);
     
    while(1)

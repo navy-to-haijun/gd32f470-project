@@ -26,9 +26,8 @@
 #define LCD_FRAME_BUF_ADDR 0XC0000000
 
 
-// extern uint16_t ltdc_lcd_framebuf0[800][480] __attribute__((at(LCD_FRAME_BUF_ADDR)));
-// extern uint16_t ltdc_lcd_framebuf0[800][480];
-extern uint16_t ltdc_lcd_framebuf0[800][480] __attribute__((section(".sdram")));
+extern uint16_t ltdc_lcd_framebuf0[800][480];
+// extern uint16_t (*ltdc_lcd_framebuf0)[LCD_HEIGHT];
 
 /*******************************************************************************
  * API

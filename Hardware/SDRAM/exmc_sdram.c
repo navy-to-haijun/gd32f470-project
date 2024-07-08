@@ -168,7 +168,7 @@ ErrStatus exmc_synchronous_dynamic_ram_init(uint32_t sdram_device)
     /*配置写保护功能*/
     sdram_init_struct.write_protection = DISABLE;
     /*SDRAM时钟配置*/
-    sdram_init_struct.sdclock_config = EXMC_SDCLK_PERIODS_2_HCLK;  
+    sdram_init_struct.sdclock_config = EXMC_SDCLK_PERIODS_3_HCLK;  
     /*突发读开关*/
     sdram_init_struct.burst_read_switch = ENABLE;
     /*流水线读数据延迟*/
