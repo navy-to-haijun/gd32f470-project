@@ -1,17 +1,8 @@
-;/*
-; * Copyright (c) 2006-2021, RT-Thread Development Team
-; *
-; * SPDX-License-Identifier: Apache-2.0
-; *
-; * Change Logs:
-; * Date           Author       Notes
-; * 2018-05-22     tanek        first implementation
-; */
 
-.syntax unified
-.cpu cortex-m4
-.fpu softvfp
-.thumb
+.syntax unified         // ARM和THUMB指令使用统一的语法
+.cpu cortex-m4          // 指定处理器为 Cortex-M4
+.fpu fpv4-sp-d16        // 指定浮点单元
+.thumb                  // 启用 Thumb 指令集
 
 .global  g_pfnVectors
 .global  Default_Handler

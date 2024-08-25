@@ -15,9 +15,20 @@ target_include_directories(gd32f470HAL INTERFACE
     ${CMAKE_SOURCE_DIR}/Firmware/GD32F4xx_standard_peripheral/Include
     ${CMAKE_SOURCE_DIR}/Firmware/CMSIS
     ${CMAKE_SOURCE_DIR}/Firmware/CMSIS/GD/GD32F4xx/Include
+    ${CMAKE_SOURCE_DIR}/Firmware/GD32F4xx_usb_library/device/class/cdc/Include
+    ${CMAKE_SOURCE_DIR}/Firmware/GD32F4xx_usb_library/device/core/Include
+    ${CMAKE_SOURCE_DIR}/Firmware/GD32F4xx_usb_library/driver/Include
+    ${CMAKE_SOURCE_DIR}/Firmware/GD32F4xx_usb_library/ustd/common
+    ${CMAKE_SOURCE_DIR}/Firmware/GD32F4xx_usb_library/ustd/class/cdc
 )
 # 递归查找Firmware文件夹下所有C文件
-file(GLOB_RECURSE SRC_DIR_LIST ${CMAKE_SOURCE_DIR}/Firmware/*.c)
+file(GLOB_RECURSE SRC_DIR_LIST 
+    ${CMAKE_SOURCE_DIR}/Firmware/CMSIS/*.c
+    ${CMAKE_SOURCE_DIR}/Firmware/GD32F4xx_standard_peripheral/*.c
+    ${CMAKE_SOURCE_DIR}/Firmware/GD32F4xx_usb_library/device/core/Source/*.c
+    ${CMAKE_SOURCE_DIR}/Firmware/GD32F4xx_usb_library/driver/Source/*.c
+    ${CMAKE_SOURCE_DIR}/Firmware/GD32F4xx_usb_library/device/class/cdc/Source/*.c
+)
 
 # 源文件
 target_sources(gd32f470HAL INTERFACE

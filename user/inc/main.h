@@ -35,7 +35,12 @@ OF SUCH DAMAGE.
 #ifndef __MAIN_H
 #define __MAIN_H
 
-# include"led.h"
+#include"led.h"
+#include "drv_usb_hw.h"
+#include "cdc_acm_core.h"
+
+
+extern usb_core_driver cdc_acm;
 
 
 #endif /* __MAIN_H */

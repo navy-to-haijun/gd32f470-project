@@ -150,3 +150,26 @@ void SysTick_Handler(void)
 {
     delay_decrement();
 }
+/*!
+    \brief      this function handles timer2 interrupt Handler
+    \param[in]  none
+    \param[out] none
+    \retval     none
+*/
+void usb_timer_irq (void);
+void TIMER2_IRQHandler(void)
+{
+    usb_timer_irq();
+}
+
+/*!
+    \brief      this function handles USBFS IRQ Handler
+    \param[in]  none
+    \param[out] none
+    \retval     none
+*/
+void usbd_isr (usb_core_driver *udev);
+void USBFS_IRQHandler(void)
+{
+    usbd_isr(&cdc_acm);
+}

@@ -4,6 +4,24 @@
     // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+
+        {
+            "name": "Debug with OpenOCD",
+            "cwd": "${workspaceRoot}",
+            "executable": "./build/gd32f470BaseProject.elf",
+            "request": "launch",
+            "type": "cortex-debug",
+            "servertype": "openocd",
+            "configFiles": [
+                "./pyocd/openocd.cfg"],
+            "searchDir": [],
+            "runToEntryPoint": "main",
+            "showDevDebugOutput": "none",
+            "liveWatch": {
+                "enabled": true,
+                "samplesPerSecond": 1
+            },
+        },
         {
             "name": "GD32 Debug with PyOCD",
             "cwd": "${workspaceRoot}",
@@ -13,8 +31,12 @@
             "runToEntryPoint": "main",
             "servertype": "pyocd",
             "targetId":"gd32f470zg",
-            "showDevDebugOutput": "both",
-            "cmsisPack": "./pyocd/GigaDevice.GD32F4xx_DFP.3.2.0.pack"
+            "showDevDebugOutput": "none",
+            "cmsisPack": "./pyocd/GigaDevice.GD32F4xx_DFP.3.2.0.pack",
+            // "liveWatch": {
+            //     "enabled": true,
+            //     "samplesPerSecond": 1
+            // }
         }
     ]
 }

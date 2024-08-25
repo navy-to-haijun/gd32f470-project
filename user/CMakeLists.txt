@@ -11,10 +11,10 @@ target_compile_definitions(user INTERFACE
 )
 # 头文件
 target_include_directories(user INTERFACE
-    ${CMAKE_SOURCE_DIR}/user
+    ${CMAKE_SOURCE_DIR}/user/inc
 )
 # 递归查找user文件夹下所有C文件
-file(GLOB_RECURSE SRC_DIR_LIST ${CMAKE_SOURCE_DIR}/user/*.c)
+file(GLOB_RECURSE SRC_DIR_LIST ${CMAKE_SOURCE_DIR}/user/src/*.c)
 
 # 源文件
 target_sources(user INTERFACE
