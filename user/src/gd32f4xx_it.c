@@ -156,11 +156,6 @@ void SysTick_Handler(void)
     \param[out] none
     \retval     none
 */
-void usb_timer_irq (void);
-void TIMER2_IRQHandler(void)
-{
-    usb_timer_irq();
-}
 
 /*!
     \brief      this function handles USBFS IRQ Handler
