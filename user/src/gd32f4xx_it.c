@@ -156,15 +156,3 @@ void SysTick_Handler(void)
     \param[out] none
     \retval     none
 */
-
-/*!
-    \brief      this function handles USBFS IRQ Handler
-    \param[in]  none
-    \param[out] none
-    \retval     none
-*/
-void usbd_isr (usb_core_driver *udev);
-void USBFS_IRQHandler(void)
-{
-    usbd_isr(&cdc_acm);
-}
