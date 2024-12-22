@@ -9,7 +9,7 @@
                 "${workspaceFolder}/common/Firmware/GD32F4xx_standard_peripheral/Include/**",
                 "${workspaceFolder}/common/Firmware/CMSIS/**",
                 "${workspaceFolder}/common/Firmware/CMSIS/GD/GD32F4xx/Include/**",
-                "${workspaceFolder}/1-led-demo/include/**"
+                "${workspaceFolder}/1-led-printf-demo/include/**"
                 // "${workspaceFolder}/3rdPary/RTT"
                 
             ],

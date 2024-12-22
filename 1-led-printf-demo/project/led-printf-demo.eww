@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workspace>
     <project>
-        <path>$WS_DIR$\led-demo.ewp</path>
+        <path>$WS_DIR$\led-printf-demo.ewp</path>
     </project>
     <batchBuild />
 </workspace>

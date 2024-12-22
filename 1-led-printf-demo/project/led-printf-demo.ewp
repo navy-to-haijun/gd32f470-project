@@ -53,16 +53,16 @@
                 <option>
                     <name>GRuntimeLibSelect</name>
                     <version>0</version>
-                    <state>1</state>
+                    <state>2</state>
                 </option>
                 <option>
                     <name>GRuntimeLibSelectSlave</name>
                     <version>0</version>
-                    <state>1</state>
+                    <state>2</state>
                 </option>
                 <option>
                     <name>RTDescription</name>
-                    <state>A compact configuration of the C/C++14 runtime library. No locale interface, C locale, no file descriptor support, no multibytes in printf and scanf, and no hex floats in strtod.</state>
+                    <state>A complete configuration of the C/C++14 runtime library. Full locale interface, C locale, file descriptor support, multibytes in printf and scanf, and hex floats in strtod.</state>
                 </option>
                 <option>
                     <name>OGProductVersion</name>
@@ -78,7 +78,7 @@
                 </option>
                 <option>
                     <name>GenLowLevelInterface</name>
-                    <state>1</state>
+                    <state>0</state>
                 </option>
                 <option>
                     <name>GEndianModeBE</name>
@@ -94,7 +94,7 @@
                 </option>
                 <option>
                     <name>RTConfigPath2</name>
-                    <state>$TOOLKIT_DIR$\inc\c\DLib_Config_Normal.h</state>
+                    <state>$TOOLKIT_DIR$\inc\c\DLib_Config_Full.h</state>
                 </option>
                 <option>
                     <name>GBECoreSlave</name>
@@ -354,6 +354,7 @@
                     <state>$PROJ_DIR$\..\..\common\Firmware\CMSIS\GD\GD32F4xx\Include</state>
                     <state>$PROJ_DIR$\..\..\common\drive\LED</state>
                     <state>$PROJ_DIR$\..\include</state>
+                    <state>$PROJ_DIR$\..\..\common\drive\USART</state>
                 </option>
                 <option>
                     <name>CCStdIncCheck</name>
@@ -770,7 +771,7 @@
                 </option>
                 <option>
                     <name>IlinkIcfFile</name>
-                    <state>$TOOLKIT_DIR$/config/linker/GD/GD32F470xE.icf</state>
+                    <state>$TOOLKIT_DIR$/config/linker/GigaDevice/GD32F470xG.icf</state>
                 </option>
                 <option>
                     <name>IlinkIcfFileSlave</name>
@@ -2197,6 +2198,9 @@
     </group>
     <group>
         <name>Driver</name>
+        <file>
+            <name>$PROJ_DIR$\..\..\common\drive\USART\bsp_usart.c</name>
+        </file>
         <file>
             <name>$PROJ_DIR$\..\..\common\drive\LED\Led.c</name>
         </file>

@@ -2875,6 +2875,9 @@
     <group>
         <name>Driver</name>
         <file>
+            <name>$PROJ_DIR$\..\..\common\drive\USART\bsp_usart.c</name>
+        </file>
+        <file>
             <name>$PROJ_DIR$\..\..\common\drive\LED\Led.c</name>
         </file>
     </group>
