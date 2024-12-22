@@ -1,5 +1,0 @@
-{
-    "cortex-debug.liveWatchRefreshRate": 500,
-    "cortex-debug.armToolchainPath": "/home/haijun/software/gcc-arm-none-eabi/gcc-arm-none-eabi-10-2020-q4-major/bin",
-    "cortex-debug.variableUseNaturalFormat": true
-}

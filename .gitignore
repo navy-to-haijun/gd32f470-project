@@ -1,2 +1,4 @@
 # 忽视文件
-build/
+Debug/
+settings/
+*ewd
