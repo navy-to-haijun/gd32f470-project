@@ -1,25 +1,31 @@
 {
     "configurations": [
         {
-            "name": "Linux",
+            "name": "Win32",
             "includePath": [
+                "C:/sofware/IAR94/install/arm/inc/c/**",
                 "${workspaceFolder}/**",
-                "${workspaceFolder}/user/**",
-                "${workspaceFolder}//Hardware/LED/**",
-                "${workspaceFolder}/Firmware/GD32F4xx_standard_peripheral/Include/**",
-                "${workspaceFolder}/Firmware/CMSIS/**",
-                "${workspaceFolder}/Firmware/CMSIS/GD/GD32F4xx/Include/**",
-                "${workspaceFolder}/3rdPary/RTT"
+                "${workspaceFolder}/common/drive/LED/**",
+                "${workspaceFolder}/common/Firmware/GD32F4xx_standard_peripheral/Include/**",
+                "${workspaceFolder}/common/Firmware/CMSIS/**",
+                "${workspaceFolder}/common/Firmware/CMSIS/GD/GD32F4xx/Include/**",
+                "${workspaceFolder}/1-led-demo/include/**"
+                // "${workspaceFolder}/3rdPary/RTT"
                 
             ],
             "defines": [
                 "GD32F470",
                 "USE_STDPERIPH_DRIVER",
-                "LWRB_DEV",
+                "LWRB_DEV"
+                // "__INT8_T_TYPE__",
+                // "__INT16_T_TYPE__",
+                // "__INT32_T_TYPE__",
+                // "__INT64_T_TYPE__"
+
             ],
             // "compilerPath": "/usr/bin/gcc",
-            "cStandard": "c11",
-            "cppStandard": "gnu++11"
+            "cStandard": "c11"
+            // "cppStandard": "gnu++11"
             // "intelliSenseMode": "linux-gcc-x64",
             // "compileCommands": "${workspaceFolder}/build/compile_commands.json"
         }

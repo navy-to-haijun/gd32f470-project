@@ -8,7 +8,7 @@
 
 #include "gd32f4xx.h"
 #include "systick.h"
-#include <stdio.h>
+// #include <stdio.h>
 #include "main.h"
 
 int8_t a = 0;

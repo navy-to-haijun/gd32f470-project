@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "gd32f4xx.h": "c",
+        "stdio.h": "c",
+        "main.h": "c"
+    },
+    "C_Cpp.errorSquiggles": "disabled"
+}
