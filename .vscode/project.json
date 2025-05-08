@@ -1,0 +1,140 @@
+{
+    "RT-Thread": "E:\\code\\rtt-gd32f4-project\\rt-thread",
+    "Groups": [
+        {
+            "name": "Applications",
+            "path": "applications",
+            "files": [
+                "applications\\main.c",
+                "applications\\SConscript"
+            ]
+        },
+        {
+            "name": "Compiler",
+            "path": "rt-thread\\components\\libc\\compilers\\common",
+            "files": [
+                "rt-thread\\components\\libc\\compilers\\common\\cctype.c",
+                "rt-thread\\components\\libc\\compilers\\common\\cstdlib.c",
+                "rt-thread\\components\\libc\\compilers\\common\\cstring.c",
+                "rt-thread\\components\\libc\\compilers\\common\\ctime.c",
+                "rt-thread\\components\\libc\\compilers\\common\\cunistd.c",
+                "rt-thread\\components\\libc\\compilers\\common\\cwchar.c",
+                "rt-thread\\components\\libc\\compilers\\newlib\\syscalls.c",
+                "rt-thread\\components\\libc\\compilers\\common\\SConscript"
+            ]
+        },
+        {
+            "name": "DeviceDrivers",
+            "path": "rt-thread\\components\\drivers\\core",
+            "files": [
+                "rt-thread\\components\\drivers\\core\\device.c",
+                "rt-thread\\components\\drivers\\ipc\\completion_comm.c",
+                "rt-thread\\components\\drivers\\ipc\\completion_up.c",
+                "rt-thread\\components\\drivers\\ipc\\condvar.c",
+                "rt-thread\\components\\drivers\\ipc\\dataqueue.c",
+                "rt-thread\\components\\drivers\\ipc\\pipe.c",
+                "rt-thread\\components\\drivers\\ipc\\ringblk_buf.c",
+                "rt-thread\\components\\drivers\\ipc\\ringbuffer.c",
+                "rt-thread\\components\\drivers\\ipc\\waitqueue.c",
+                "rt-thread\\components\\drivers\\ipc\\workqueue.c",
+                "rt-thread\\components\\drivers\\pin\\dev_pin.c",
+                "rt-thread\\components\\drivers\\serial\\dev_serial.c",
+                "rt-thread\\components\\drivers\\core\\SConscript"
+            ]
+        },
+        {
+            "name": "Drivers",
+            "path": "board",
+            "files": [
+                "board\\board.c",
+                "libraries\\GD32F4xx_Firmware_Library\\CMSIS\\GD\\GD32F4xx\\Source\\GCC\\startup_gd32f4xx.s",
+                "libraries\\gd32_drivers\\drv_gpio.c",
+                "libraries\\gd32_drivers\\drv_usart.c",
+                "board\\SConscript"
+            ]
+        },
+        {
+            "name": "Filesystem",
+            "path": "rt-thread\\components\\dfs\\dfs_v1",
+            "files": [
+                "rt-thread\\components\\dfs\\dfs_v1\\src\\dfs_fs.c",
+                "rt-thread\\components\\dfs\\dfs_v1\\src\\dfs_file.c",
+                "rt-thread\\components\\dfs\\dfs_v1\\src\\dfs_posix.c",
+                "rt-thread\\components\\dfs\\dfs_v1\\src\\dfs.c",
+                "rt-thread\\components\\dfs\\dfs_v1\\SConscript"
+            ]
+        },
+        {
+            "name": "Finsh",
+            "path": "rt-thread\\components\\finsh",
+            "files": [
+                "rt-thread\\components\\finsh\\cmd.c",
+                "rt-thread\\components\\finsh\\msh_parse.c",
+                "rt-thread\\components\\finsh\\shell.c",
+                "rt-thread\\components\\finsh\\msh_file.c",
+                "rt-thread\\components\\finsh\\msh.c",
+                "rt-thread\\components\\finsh\\SConscript"
+            ]
+        },
+        {
+            "name": "Kernel",
+            "path": ".",
+            "files": [
+                "rt-thread\\src\\clock.c",
+                "rt-thread\\src\\components.c",
+                "rt-thread\\src\\cpu_up.c",
+                "rt-thread\\src\\defunct.c",
+                "rt-thread\\src\\idle.c",
+                "rt-thread\\src\\ipc.c",
+                "rt-thread\\src\\irq.c",
+                "rt-thread\\src\\kservice.c",
+                "rt-thread\\src\\mem.c",
+                "rt-thread\\src\\mempool.c",
+                "rt-thread\\src\\object.c",
+                "rt-thread\\src\\scheduler_comm.c",
+                "rt-thread\\src\\scheduler_up.c",
+                "rt-thread\\src\\thread.c",
+                "rt-thread\\src\\timer.c",
+                ".\\SConscript"
+            ]
+        },
+        {
+            "name": "klibc",
+            "path": "rt-thread\\src\\klibc",
+            "files": [
+                "rt-thread\\src\\klibc\\kerrno.c",
+                "rt-thread\\src\\klibc\\rt_vsscanf.c",
+                "rt-thread\\src\\klibc\\rt_vsnprintf_tiny.c",
+                "rt-thread\\src\\klibc\\kstdio.c",
+                "rt-thread\\src\\klibc\\kstring.c",
+                "rt-thread\\src\\klibc\\SConscript"
+            ]
+        },
+        {
+            "name": "libcpu",
+            "path": "rt-thread\\libcpu\\arm\\common",
+            "files": [
+                "rt-thread\\libcpu\\arm\\common\\div0.c",
+                "rt-thread\\libcpu\\arm\\common\\showmem.c",
+                "rt-thread\\libcpu\\arm\\cortex-m4\\context_gcc.S",
+                "rt-thread\\libcpu\\arm\\cortex-m4\\cpuport.c",
+                "rt-thread\\libcpu\\arm\\common\\SConscript"
+            ]
+        },
+        {
+            "name": "Libraries",
+            "path": "libraries\\GD32F4xx_Firmware_Library",
+            "files": [
+                "libraries\\GD32F4xx_Firmware_Library\\GD32F4xx_standard_peripheral\\Source\\gd32f4xx_misc.c",
+                "libraries\\GD32F4xx_Firmware_Library\\GD32F4xx_standard_peripheral\\Source\\gd32f4xx_syscfg.c",
+                "libraries\\GD32F4xx_Firmware_Library\\GD32F4xx_standard_peripheral\\Source\\gd32f4xx_rcu.c",
+                "libraries\\GD32F4xx_Firmware_Library\\GD32F4xx_standard_peripheral\\Source\\gd32f4xx_exti.c",
+                "libraries\\GD32F4xx_Firmware_Library\\GD32F4xx_standard_peripheral\\Source\\gd32f4xx_usart.c",
+                "libraries\\GD32F4xx_Firmware_Library\\CMSIS\\GD\\GD32F4xx\\Source\\system_gd32f4xx.c",
+                "libraries\\GD32F4xx_Firmware_Library\\GD32F4xx_standard_peripheral\\Source\\gd32f4xx_gpio.c",
+                "libraries\\GD32F4xx_Firmware_Library\\GD32F4xx_standard_peripheral\\Source\\gd32f4xx_dma.c",
+                "libraries\\GD32F4xx_Firmware_Library\\SConscript"
+            ]
+        }
+    ]
+}

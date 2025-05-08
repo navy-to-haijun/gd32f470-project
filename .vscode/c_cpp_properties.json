@@ -1,33 +1,43 @@
 {
     "configurations": [
         {
-            "name": "Win32",
-            "includePath": [
-                "C:/sofware/IAR94/install/arm/inc/c/**",
-                "${workspaceFolder}/**",
-                "${workspaceFolder}/common/drive/LED/**",
-                "${workspaceFolder}/common/Firmware/GD32F4xx_standard_peripheral/Include/**",
-                "${workspaceFolder}/common/Firmware/CMSIS/**",
-                "${workspaceFolder}/common/Firmware/CMSIS/GD/GD32F4xx/Include/**",
-                "${workspaceFolder}/1-led-printf-demo/include/**"
-                // "${workspaceFolder}/3rdPary/RTT"
-                
-            ],
+            "name": "rt-thread",
             "defines": [
                 "GD32F470",
+                "RT_USING_LIBC",
+                "RT_USING_NEWLIBC",
                 "USE_STDPERIPH_DRIVER",
-                "LWRB_DEV"
-                // "__INT8_T_TYPE__",
-                // "__INT16_T_TYPE__",
-                // "__INT32_T_TYPE__",
-                // "__INT64_T_TYPE__"
-
+                "_POSIX_C_SOURCE=1",
+                "__RTTHREAD__"
             ],
-            // "compilerPath": "/usr/bin/gcc",
-            "cStandard": "c11"
-            // "cppStandard": "gnu++11"
-            // "intelliSenseMode": "linux-gcc-x64",
-            // "compileCommands": "${workspaceFolder}/build/compile_commands.json"
+            "intelliSenseMode": "gcc-arm",
+            "compilerPath": "C:/sofware/rtthread/env-windows/tools/gnu_gcc/arm_gcc/mingw/bin/arm-none-eabi-gcc",
+            "cStandard": "c99",
+            "cppStandard": "c++11",
+            "compileCommands": "build/compile_commands.json",
+            "includePath": [
+                "applications",
+                "rt-thread\\components\\libc\\compilers\\common\\include",
+                "rt-thread\\components\\libc\\compilers\\newlib",
+                "rt-thread\\components\\drivers\\include",
+                "rt-thread\\components\\drivers\\phy",
+                "board",
+                "libraries\\gd32_drivers",
+                "rt-thread\\components\\dfs\\dfs_v1\\include",
+                "rt-thread\\components\\finsh",
+                ".",
+                "rt-thread\\include",
+                "rt-thread\\libcpu\\arm\\common",
+                "rt-thread\\libcpu\\arm\\cortex-m4",
+                "libraries\\GD32F4xx_Firmware_Library\\CMSIS\\GD\\GD32F4xx\\Include",
+                "libraries\\GD32F4xx_Firmware_Library\\CMSIS",
+                "libraries\\GD32F4xx_Firmware_Library\\GD32F4xx_standard_peripheral\\Include",
+                "rt-thread\\components\\libc\\posix\\io\\epoll",
+                "rt-thread\\components\\libc\\posix\\io\\eventfd",
+                "rt-thread\\components\\libc\\posix\\io\\poll",
+                "rt-thread\\components\\libc\\posix\\ipc",
+                "rt-thread\\components\\drivers\\smp_call"
+            ]
         }
     ],
     "version": 4

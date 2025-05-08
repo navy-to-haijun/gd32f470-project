@@ -2,3 +2,9 @@
 Debug/
 settings/
 *ewd
+*.o
+*.bin
+*.lef
+*.map
+__pycache__
+build/
