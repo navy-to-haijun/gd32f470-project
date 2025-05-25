@@ -1,0 +1,11 @@
+{
+    "files.associations": {
+        "rthw.h": "c",
+        "board.h": "c",
+        "drv_usart_v2.h": "c",
+        "dev_i2c.h": "c",
+        "drv_eth.h": "c",
+        "gd32f4xx_exti.h": "c",
+        "gd32f4xx.h": "c"
+    }
+}

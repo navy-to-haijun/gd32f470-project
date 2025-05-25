@@ -2,14 +2,11 @@
     \file    gd32f4xx_enet.h
     \brief   definitions for the ENET
 
-    \version 2016-08-15, V1.0.0, firmware for GD32F4xx
-    \version 2018-12-12, V2.0.0, firmware for GD32F4xx
-    \version 2020-09-30, V2.1.0, firmware for GD32F4xx
-    \version 2022-03-09, V3.0.0, firmware for GD32F4xx
+    \version 2024-12-20, V3.3.1, firmware for GD32F4xx
 */
 
 /*
-    Copyright (c) 2022, GigaDevice Semiconductor Inc.
+    Copyright (c) 2024, GigaDevice Semiconductor Inc.
 
     Redistribution and use in source and binary forms, with or without modification, 
 are permitted provided that the following conditions are met:
@@ -69,9 +66,9 @@ OF SUCH DAMAGE.
 #ifndef _PHY_H_
 #define DP83848                          0
 #define LAN8700                          1
-#define PHY_TYPE                         DP83848
+#define PHY_TYPE                         LAN8700
 
-#define PHY_ADDRESS                      ((uint16_t)1U)                         /*!< phy address determined by the hardware */
+#define PHY_ADDRESS                      ((uint16_t)0U)                         /*!< phy address determined by the hardware */
 
 /* PHY read write timeouts */ 
 #define PHY_READ_TO                      ((uint32_t)0x0004FFFFU)                /*!< PHY read timeout */

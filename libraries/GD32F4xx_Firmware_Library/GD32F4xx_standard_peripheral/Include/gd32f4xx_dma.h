@@ -1,14 +1,11 @@
 /*!
     \file    gd32f4xx_dma.h
     \brief   definitions for the DMA
-    \version 2016-08-15, V1.0.0, firmware for GD32F4xx
-    \version 2018-12-12, V2.0.0, firmware for GD32F4xx
-    \version 2020-09-30, V2.1.0, firmware for GD32F4xx
-    \version 2022-03-09, V3.0.0, firmware for GD32F4xx
+    \version 2024-12-20, V3.3.1, firmware for GD32F4xx
 */
 
 /*
-    Copyright (c) 2022, GigaDevice Semiconductor Inc.
+    Copyright (c) 2024, GigaDevice Semiconductor Inc.
 
     Redistribution and use in source and binary forms, with or without modification, 
 are permitted provided that the following conditions are met:
@@ -37,7 +34,11 @@ OF SUCH DAMAGE.
 #ifndef GD32F4XX_DMA_H
 #define GD32F4XX_DMA_H
 
+#if defined(__cplusplus)
+extern "C" {
+#endif /* __cplusplus */   
 #include "gd32f4xx.h"
+
 
 /* DMA definitions */
 #define DMA0                              (DMA_BASE)                          /*!< DMA0 base address */
@@ -326,7 +327,7 @@ typedef struct
 #define DMA_CHPADDR_RESET_VALUE           ((uint32_t)0x00000000U)                   /*!< the reset value of DMA channel CHXPADDR register */
 #define DMA_CHMADDR_RESET_VALUE           ((uint32_t)0x00000000U)                   /*!< the reset value of DMA channel CHXMADDR register */
 #define DMA_CHINTF_RESET_VALUE            ((uint32_t)0x0000003DU)                   /*!< clear DMA channel CHXINTFS register */
-#define DMA_CHFCTL_RESET_VALUE            ((uint32_t)0x00000000U)                   /*!< the reset value of DMA channel CHXFCTL register */
+#define DMA_CHFCTL_RESET_VALUE            ((uint32_t)0x00000021U)                   /*!< the reset value of DMA channel CHXFCTL register */
 
 /* DMA_INTF register */
 /* interrupt flag bits */
@@ -343,6 +344,13 @@ typedef struct
 #define DMA_FLAG_HTF                      DMA_INTF_HTFIF                            /*!< half transfer finish flag */
 #define DMA_FLAG_FTF                      DMA_INTF_FTFIF                            /*!< full transfer finish flag */
 
+/* DMA_CHxCTL register */
+/* interrupt enable bits */
+#define DMA_INT_SDE                       DMA_CHXCTL_SDEIE                          /*!< enable bit for channel x single data mode exception interrupt */
+#define DMA_INT_TAE                       DMA_CHXCTL_TAEIE                          /*!< enable bit for channel x tranfer access error interrupt */
+#define DMA_INT_HTF                       DMA_CHXCTL_HTFIE                          /*!< enable bit for channel x half transfer finish interrupt */
+#define DMA_INT_FTF                       DMA_CHXCTL_FTFIE                          /*!< enable bit for channel x full transfer finish interrupt */    
+#define DMA_INT_FEE                       DMA_CHXFCTL_FEEIE                         /*!< FIFO exception interrupt enable */
 
 /* function declarations */
 /* DMA deinitialization and initialization functions */
@@ -424,5 +432,9 @@ void dma_interrupt_disable(uint32_t dma_periph, dma_channel_enum channelx, uint3
 FlagStatus dma_interrupt_flag_get(uint32_t dma_periph, dma_channel_enum channelx, uint32_t interrupt);
 /* clear DMA a channel flag */
 void dma_interrupt_flag_clear(uint32_t dma_periph, dma_channel_enum channelx, uint32_t interrupt);
+
+#if defined(__cplusplus)
+}
+#endif /* __cplusplus */
 
 #endif /* GD32F4XX_DMA_H */

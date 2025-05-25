@@ -14,6 +14,7 @@ GD32F4xx_standard_peripheral/Source/gd32f4xx_dma.c
 GD32F4xx_standard_peripheral/Source/gd32f4xx_exti.c
 GD32F4xx_standard_peripheral/Source/gd32f4xx_misc.c
 GD32F4xx_standard_peripheral/Source/gd32f4xx_syscfg.c
+GD32F4xx_standard_peripheral/Source/gd32f4xx_enet.c
 ''')
 
 if GetDepend(['RT_USING_SERIAL']):
@@ -28,8 +29,8 @@ if GetDepend(['RT_USING_SPI']):
 if GetDepend(['RT_USING_CAN']):
     src += ['GD32F4xx_standard_peripheral/Source/gd32f4xx_can.c']
 
-if GetDepend(['BSP_USING_ETH']):
-    src += ['GD32F4xx_standard_peripheral/Source/gd32f4xx_enet.c']
+# if GetDepend(['BSP_USING_ETH']):
+#     src += ['GD32F4xx_standard_peripheral/Source/gd32f4xx_enet.c']
 
 if GetDepend(['RT_USING_ADC']):
     src += ['GD32F4xx_standard_peripheral/Source/gd32f4xx_adc.c']

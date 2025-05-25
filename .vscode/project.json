@@ -1,5 +1,5 @@
 {
-    "RT-Thread": "E:\\code\\rtt-gd32f4-project\\rt-thread",
+    "RT-Thread": "E:\\code\\gd32f470-project\\rt-thread",
     "Groups": [
         {
             "name": "Applications",
@@ -28,6 +28,8 @@
             "path": "rt-thread\\components\\drivers\\core",
             "files": [
                 "rt-thread\\components\\drivers\\core\\device.c",
+                "rt-thread\\components\\drivers\\i2c\\dev_i2c_core.c",
+                "rt-thread\\components\\drivers\\i2c\\dev_i2c_dev.c",
                 "rt-thread\\components\\drivers\\ipc\\completion_comm.c",
                 "rt-thread\\components\\drivers\\ipc\\completion_up.c",
                 "rt-thread\\components\\drivers\\ipc\\condvar.c",
@@ -48,7 +50,9 @@
             "files": [
                 "board\\board.c",
                 "libraries\\GD32F4xx_Firmware_Library\\CMSIS\\GD\\GD32F4xx\\Source\\GCC\\startup_gd32f4xx.s",
+                "libraries\\gd32_drivers\\drv_eth.c",
                 "libraries\\gd32_drivers\\drv_gpio.c",
+                "libraries\\gd32_drivers\\drv_hard_dma_i2c.c",
                 "libraries\\gd32_drivers\\drv_usart.c",
                 "board\\SConscript"
             ]
@@ -57,10 +61,10 @@
             "name": "Filesystem",
             "path": "rt-thread\\components\\dfs\\dfs_v1",
             "files": [
-                "rt-thread\\components\\dfs\\dfs_v1\\src\\dfs_fs.c",
-                "rt-thread\\components\\dfs\\dfs_v1\\src\\dfs_file.c",
                 "rt-thread\\components\\dfs\\dfs_v1\\src\\dfs_posix.c",
+                "rt-thread\\components\\dfs\\dfs_v1\\src\\dfs_file.c",
                 "rt-thread\\components\\dfs\\dfs_v1\\src\\dfs.c",
+                "rt-thread\\components\\dfs\\dfs_v1\\src\\dfs_fs.c",
                 "rt-thread\\components\\dfs\\dfs_v1\\SConscript"
             ]
         },
@@ -68,11 +72,11 @@
             "name": "Finsh",
             "path": "rt-thread\\components\\finsh",
             "files": [
-                "rt-thread\\components\\finsh\\cmd.c",
-                "rt-thread\\components\\finsh\\msh_parse.c",
                 "rt-thread\\components\\finsh\\shell.c",
-                "rt-thread\\components\\finsh\\msh_file.c",
                 "rt-thread\\components\\finsh\\msh.c",
+                "rt-thread\\components\\finsh\\cmd.c",
+                "rt-thread\\components\\finsh\\msh_file.c",
+                "rt-thread\\components\\finsh\\msh_parse.c",
                 "rt-thread\\components\\finsh\\SConscript"
             ]
         },
@@ -102,11 +106,11 @@
             "name": "klibc",
             "path": "rt-thread\\src\\klibc",
             "files": [
-                "rt-thread\\src\\klibc\\kerrno.c",
                 "rt-thread\\src\\klibc\\rt_vsscanf.c",
                 "rt-thread\\src\\klibc\\rt_vsnprintf_tiny.c",
                 "rt-thread\\src\\klibc\\kstdio.c",
                 "rt-thread\\src\\klibc\\kstring.c",
+                "rt-thread\\src\\klibc\\kerrno.c",
                 "rt-thread\\src\\klibc\\SConscript"
             ]
         },
@@ -125,15 +129,74 @@
             "name": "Libraries",
             "path": "libraries\\GD32F4xx_Firmware_Library",
             "files": [
-                "libraries\\GD32F4xx_Firmware_Library\\GD32F4xx_standard_peripheral\\Source\\gd32f4xx_misc.c",
-                "libraries\\GD32F4xx_Firmware_Library\\GD32F4xx_standard_peripheral\\Source\\gd32f4xx_syscfg.c",
+                "libraries\\GD32F4xx_Firmware_Library\\GD32F4xx_standard_peripheral\\Source\\gd32f4xx_i2c.c",
                 "libraries\\GD32F4xx_Firmware_Library\\GD32F4xx_standard_peripheral\\Source\\gd32f4xx_rcu.c",
-                "libraries\\GD32F4xx_Firmware_Library\\GD32F4xx_standard_peripheral\\Source\\gd32f4xx_exti.c",
-                "libraries\\GD32F4xx_Firmware_Library\\GD32F4xx_standard_peripheral\\Source\\gd32f4xx_usart.c",
-                "libraries\\GD32F4xx_Firmware_Library\\CMSIS\\GD\\GD32F4xx\\Source\\system_gd32f4xx.c",
-                "libraries\\GD32F4xx_Firmware_Library\\GD32F4xx_standard_peripheral\\Source\\gd32f4xx_gpio.c",
                 "libraries\\GD32F4xx_Firmware_Library\\GD32F4xx_standard_peripheral\\Source\\gd32f4xx_dma.c",
+                "libraries\\GD32F4xx_Firmware_Library\\GD32F4xx_standard_peripheral\\Source\\gd32f4xx_exti.c",
+                "libraries\\GD32F4xx_Firmware_Library\\GD32F4xx_standard_peripheral\\Source\\gd32f4xx_syscfg.c",
+                "libraries\\GD32F4xx_Firmware_Library\\GD32F4xx_standard_peripheral\\Source\\gd32f4xx_misc.c",
+                "libraries\\GD32F4xx_Firmware_Library\\GD32F4xx_standard_peripheral\\Source\\gd32f4xx_usart.c",
+                "libraries\\GD32F4xx_Firmware_Library\\GD32F4xx_standard_peripheral\\Source\\gd32f4xx_gpio.c",
+                "libraries\\GD32F4xx_Firmware_Library\\CMSIS\\GD\\GD32F4xx\\Source\\system_gd32f4xx.c",
                 "libraries\\GD32F4xx_Firmware_Library\\SConscript"
+            ]
+        },
+        {
+            "name": "lwIP",
+            "path": "rt-thread\\components\\net\\lwip\\lwip-2.0.3",
+            "files": [
+                "rt-thread\\components\\net\\lwip\\lwip-2.0.3\\src\\api\\api_lib.c",
+                "rt-thread\\components\\net\\lwip\\lwip-2.0.3\\src\\api\\api_msg.c",
+                "rt-thread\\components\\net\\lwip\\lwip-2.0.3\\src\\api\\err.c",
+                "rt-thread\\components\\net\\lwip\\lwip-2.0.3\\src\\api\\netbuf.c",
+                "rt-thread\\components\\net\\lwip\\lwip-2.0.3\\src\\api\\netdb.c",
+                "rt-thread\\components\\net\\lwip\\lwip-2.0.3\\src\\api\\netifapi.c",
+                "rt-thread\\components\\net\\lwip\\lwip-2.0.3\\src\\api\\sockets.c",
+                "rt-thread\\components\\net\\lwip\\lwip-2.0.3\\src\\api\\tcpip.c",
+                "rt-thread\\components\\net\\lwip\\lwip-2.0.3\\src\\apps\\ping\\ping.c",
+                "rt-thread\\components\\net\\lwip\\lwip-2.0.3\\src\\core\\def.c",
+                "rt-thread\\components\\net\\lwip\\lwip-2.0.3\\src\\core\\dns.c",
+                "rt-thread\\components\\net\\lwip\\lwip-2.0.3\\src\\core\\inet_chksum.c",
+                "rt-thread\\components\\net\\lwip\\lwip-2.0.3\\src\\core\\init.c",
+                "rt-thread\\components\\net\\lwip\\lwip-2.0.3\\src\\core\\ip.c",
+                "rt-thread\\components\\net\\lwip\\lwip-2.0.3\\src\\core\\ipv4\\autoip.c",
+                "rt-thread\\components\\net\\lwip\\lwip-2.0.3\\src\\core\\ipv4\\dhcp.c",
+                "rt-thread\\components\\net\\lwip\\lwip-2.0.3\\src\\core\\ipv4\\etharp.c",
+                "rt-thread\\components\\net\\lwip\\lwip-2.0.3\\src\\core\\ipv4\\icmp.c",
+                "rt-thread\\components\\net\\lwip\\lwip-2.0.3\\src\\core\\ipv4\\igmp.c",
+                "rt-thread\\components\\net\\lwip\\lwip-2.0.3\\src\\core\\ipv4\\ip4.c",
+                "rt-thread\\components\\net\\lwip\\lwip-2.0.3\\src\\core\\ipv4\\ip4_addr.c",
+                "rt-thread\\components\\net\\lwip\\lwip-2.0.3\\src\\core\\ipv4\\ip4_frag.c",
+                "rt-thread\\components\\net\\lwip\\lwip-2.0.3\\src\\core\\memp.c",
+                "rt-thread\\components\\net\\lwip\\lwip-2.0.3\\src\\core\\netif.c",
+                "rt-thread\\components\\net\\lwip\\lwip-2.0.3\\src\\core\\pbuf.c",
+                "rt-thread\\components\\net\\lwip\\lwip-2.0.3\\src\\core\\raw.c",
+                "rt-thread\\components\\net\\lwip\\lwip-2.0.3\\src\\core\\stats.c",
+                "rt-thread\\components\\net\\lwip\\lwip-2.0.3\\src\\core\\sys.c",
+                "rt-thread\\components\\net\\lwip\\lwip-2.0.3\\src\\core\\tcp.c",
+                "rt-thread\\components\\net\\lwip\\lwip-2.0.3\\src\\core\\tcp_in.c",
+                "rt-thread\\components\\net\\lwip\\lwip-2.0.3\\src\\core\\tcp_out.c",
+                "rt-thread\\components\\net\\lwip\\lwip-2.0.3\\src\\core\\timeouts.c",
+                "rt-thread\\components\\net\\lwip\\lwip-2.0.3\\src\\core\\udp.c",
+                "rt-thread\\components\\net\\lwip\\lwip-2.0.3\\src\\netif\\ethernet.c",
+                "rt-thread\\components\\net\\lwip\\lwip-2.0.3\\src\\netif\\lowpan6.c",
+                "rt-thread\\components\\net\\lwip\\port\\ethernetif.c",
+                "rt-thread\\components\\net\\lwip\\port\\sys_arch.c",
+                "rt-thread\\components\\net\\lwip\\lwip-2.0.3\\SConscript"
+            ]
+        },
+        {
+            "name": "SAL",
+            "path": "rt-thread\\components\\net\\netdev",
+            "files": [
+                "rt-thread\\components\\net\\netdev\\src\\netdev.c",
+                "rt-thread\\components\\net\\netdev\\src\\netdev_ipaddr.c",
+                "rt-thread\\components\\net\\sal\\dfs_net\\dfs_net.c",
+                "rt-thread\\components\\net\\sal\\impl\\af_inet_lwip.c",
+                "rt-thread\\components\\net\\sal\\socket\\net_netdb.c",
+                "rt-thread\\components\\net\\sal\\socket\\net_sockets.c",
+                "rt-thread\\components\\net\\sal\\src\\sal_socket.c",
+                "rt-thread\\components\\net\\netdev\\SConscript"
             ]
         }
     ]

@@ -14,7 +14,9 @@
             "compilerPath": "C:/sofware/rtthread/env-windows/tools/gnu_gcc/arm_gcc/mingw/bin/arm-none-eabi-gcc",
             "cStandard": "c99",
             "cppStandard": "c++11",
-            "compileCommands": "build/compile_commands.json",
+            "compileCommands": [
+                "build/compile_commands.json"
+            ],
             "includePath": [
                 "applications",
                 "rt-thread\\components\\libc\\compilers\\common\\include",
@@ -32,10 +34,20 @@
                 "libraries\\GD32F4xx_Firmware_Library\\CMSIS\\GD\\GD32F4xx\\Include",
                 "libraries\\GD32F4xx_Firmware_Library\\CMSIS",
                 "libraries\\GD32F4xx_Firmware_Library\\GD32F4xx_standard_peripheral\\Include",
+                "rt-thread\\components\\net\\lwip\\lwip-2.0.3\\src\\include",
+                "rt-thread\\components\\net\\lwip\\lwip-2.0.3\\src\\include\\ipv4",
+                "rt-thread\\components\\net\\lwip\\lwip-2.0.3\\src\\include\\netif",
+                "rt-thread\\components\\net\\lwip\\port",
                 "rt-thread\\components\\libc\\posix\\io\\epoll",
                 "rt-thread\\components\\libc\\posix\\io\\eventfd",
                 "rt-thread\\components\\libc\\posix\\io\\poll",
                 "rt-thread\\components\\libc\\posix\\ipc",
+                "rt-thread\\components\\net\\netdev\\include",
+                "rt-thread\\components\\net\\sal\\include",
+                "rt-thread\\components\\net\\sal\\include\\socket",
+                "rt-thread\\components\\net\\sal\\impl",
+                "rt-thread\\components\\net\\sal\\include\\dfs_net",
+                "rt-thread\\components\\net\\sal\\include\\socket\\sys_socket",
                 "rt-thread\\components\\drivers\\smp_call"
             ]
         }
