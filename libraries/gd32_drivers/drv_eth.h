@@ -19,8 +19,7 @@ typedef struct
 {
     struct eth_device   parent;                         // 父类结构体
     uint8_t             dev_addr[MAX_ADDR_LEN];         // 设备地址
-    struct rt_semaphore  sem_tx_complete;               // 发送完成信号量
-    struct rt_semaphore  sem_rx_indicate;               // 接收完成信号量
+    rt_timer_t          poll_link_timer;                // 检测链路状态的定时器
 
 }gd32_eth_t;
 

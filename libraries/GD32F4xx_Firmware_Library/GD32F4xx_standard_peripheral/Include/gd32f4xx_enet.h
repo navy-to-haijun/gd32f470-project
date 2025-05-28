@@ -68,7 +68,7 @@ OF SUCH DAMAGE.
 #define LAN8700                          1
 #define PHY_TYPE                         LAN8700
 
-#define PHY_ADDRESS                      ((uint16_t)0U)                         /*!< phy address determined by the hardware */
+#define PHY_ADDRESS                      ((uint16_t)1U)                         /*!< phy address determined by the hardware */
 
 /* PHY read write timeouts */ 
 #define PHY_READ_TO                      ((uint32_t)0x0004FFFFU)                /*!< PHY read timeout */
