@@ -98,8 +98,19 @@ static  rt_err_t enet_mac_dma_config(void)
     rcu_periph_clock_enable(RCU_ENET);
     rcu_periph_clock_enable(RCU_ENETTX);
     rcu_periph_clock_enable(RCU_ENETRX);
-    
+
     enet_deinit();
+    reval_state = enet_software_reset();
+    if (reval_state == ERROR)
+    {
+        LOG_E("enet software reset failed");
+    }
+    reval_state = enet_init(ENET_AUTO_NEGOTIATION, ENET_AUTOCHECKSUM_DROP_FAILFRAMES, ENET_RECEIVEALL);
+    if (reval_state == ERROR)
+    {
+        LOG_E("enet init failed");
+    }
+    
     
     return RT_EOK;
 }
@@ -284,18 +295,6 @@ static void phy_linkchange(void *parameter)
         {
             LOG_I("phy link up");
             eth_device_linkchange(&(gd32_eth_device.parent), RT_TRUE);
-
-            /*重新软复位并重新初始化*/
-            reval_state = enet_software_reset();
-            if (reval_state == ERROR)
-            {
-                LOG_E("enet software reset failed");
-            }
-            reval_state = enet_init(ENET_AUTO_NEGOTIATION, ENET_AUTOCHECKSUM_DROP_FAILFRAMES, ENET_RECEIVEALL);
-            if (reval_state == ERROR)
-            {
-                LOG_E("enet init failed");
-            }
         }
         else
         {
