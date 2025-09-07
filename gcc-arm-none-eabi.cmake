@@ -9,14 +9,15 @@ set(CMAKE_C_COMPILER_ID GNU)
 set(CMAKE_CXX_COMPILER_ID GNU)
 
 # 交叉编译
-set(TOOLCHAIN_PREFIX                /home/haijun/software/gcc-arm-none-eabi/gcc-arm-none-eabi-10-2020-q4-major/bin/arm-none-eabi-)
+# set(TOOLCHAIN_PREFIX                /home/haijun/software/gcc-arm-none-eabi/gcc-arm-none-eabi-10-2020-q4-major/bin/arm-none-eabi-)
+# set(TOOLCHAIN_PREFIX                  C:/Users/haijun/Desktop/123/gcc-arm-none-eabi-10.3-2021.10/bin/arm-none-eabi-)
 
-set(CMAKE_C_COMPILER                ${TOOLCHAIN_PREFIX}gcc)
+set(CMAKE_C_COMPILER                ${TOOLCHAIN_PREFIX}gcc.exe)
 set(CMAKE_ASM_COMPILER              ${CMAKE_C_COMPILER})
-set(CMAKE_CXX_COMPILER              ${TOOLCHAIN_PREFIX}g++)
-set(CMAKE_LINKER                    ${TOOLCHAIN_PREFIX}g++)
-set(CMAKE_OBJCOPY                   ${TOOLCHAIN_PREFIX}objcopy)
-set(CMAKE_SIZE                      ${TOOLCHAIN_PREFIX}size)
+set(CMAKE_CXX_COMPILER              ${TOOLCHAIN_PREFIX}g++.exe)
+set(CMAKE_LINKER                    ${TOOLCHAIN_PREFIX}g++.exe)
+set(CMAKE_OBJCOPY                   ${TOOLCHAIN_PREFIX}objcopy.exe)
+set(CMAKE_SIZE                      ${TOOLCHAIN_PREFIX}size.exe)
 
 set(CMAKE_EXECUTABLE_SUFFIX_ASM     ".elf")
 set(CMAKE_EXECUTABLE_SUFFIX_C       ".elf")

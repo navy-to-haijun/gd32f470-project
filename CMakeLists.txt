@@ -76,7 +76,8 @@ target_link_libraries(${CMAKE_PROJECT_NAME}
 # 自定义清除build文件命令
 add_custom_target( clc
     COMMAND echo " clean ${CMAKE_BINARY_DIR} file!"
-    COMMAND rm -rf ${CMAKE_BINARY_DIR}/*
+    # COMMAND rm -rf ${CMAKE_BINARY_DIR}/*
+    # COMMAND powershell -NoProfile -Command "Remove-Item -Recurse -Force '${CMAKE_BINARY_DIR}\\*'"
 )
 
 # 自定义下载程序命令

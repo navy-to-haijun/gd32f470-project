@@ -1,0 +1,143 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            // 任务名字
+            "label": "CMake Configure",
+            // 终端执行
+            "type": "shell",
+            // 执行的命令
+            "command": "cmake",
+            // 传递给命令的参数
+            "args": [
+                "-S", "${workspaceFolder}",                                                  // 源码目录
+                "-B", "${workspaceFolder}/build",                                           // 构建目录
+                "-DTOOLCHAIN_PREFIX=C:/Users/haijun/Desktop/123/gcc-arm-none-eabi-10.3-2021.10/bin/arm-none-eabi-",  // 指定交叉编译前缀
+                "-G", "MinGW Makefiles",                                                      // 指定生成器  
+                "-DCMAKE_MAKE_PROGRAM=C:/Users/haijun/Desktop/123/mingw64/bin/mingw32-make.exe" // 指定make程序
+
+            ],
+            // 指定任务执行的目录和添加临时环境变量
+            "options": {
+                "cwd": "${workspaceFolder}", 
+                "env": {
+                    "PATH": "C:/Users/haijun/Desktop/123/cmake-4.1.1-windows-x86_64/bin;${env:PATH}"
+                }
+            },
+            // 任务分为build组，Ctrl+Shift+B 会直接运行。
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            // 解析错误信息
+            "problemMatcher": [],
+            "detail": "配置cmake工程"
+        },
+        {
+            "label": "CMake Build",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "--build", "build",
+                "--target", "all",
+                "-j 8"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}", 
+                "env": {
+                    "PATH": "C:/Users/haijun/Desktop/123/mingw64/bin;${env:PATH}"
+                }
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": {
+                "owner": "cpp",
+                "fileLocation": ["relative", "${workspaceFolder}"],
+                "pattern": {
+                    "regexp": "^(.*):(\\d+):(\\d*):\\s*(warning|error):\\s*(.*)$",
+                    "file": 1,
+                    "line": 2,
+                    "column": 3,
+                    "severity": 4,
+                    "message": 5
+                }
+            },
+            // // 依赖的任务
+            // "dependsOn": ["CMake Configure"],
+            // // 依赖任务的执行顺序
+            // "dependsOrder": "sequence",
+            "detail": "编译gcc"
+        },
+        {
+            "label": "CMake Clean",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "--build", "build",
+                "--target", "clean",
+                "--verbose"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}", 
+                "env": {
+                    "PATH": "C:/Users/haijun/Desktop/123/mingw64/bin;${env:PATH}"
+                }
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "problemMatcher": [],
+            "detail": "清理构建文件"
+        },
+        {
+            "label": "flash-openocd",
+            "type": "shell",
+            "command": "openocd",
+            "args": [
+                "-f", "./pyocd/openocd.cfg",
+                "-c", "program build/gd32f470BaseProject.elf verify reset exit"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "options": {
+                "cwd": "${workspaceFolder}", 
+                "env": {
+                    "PATH": "C:/Users/haijun/Desktop/123/openocd-v0.12.0-i686-w64-mingw32/bin;${env:PATH}"
+                },
+            },
+            // 存在依赖,依赖任务按顺序执行
+            "dependsOn": ["CMake Build"],
+            "dependsOrder": "sequence",
+            "problemMatcher": [],
+            "detail": "使用openocd烧录"
+        },
+        {
+        "label": "RTT Print via pyOCD",
+        "type": "shell",
+        "command": "pyocd",
+        "args": [
+            "rtt",
+            "--config", "pyocd.yaml" ,
+        ],
+        "presentation": {
+            "reveal": "always",
+            "panel": "shared",
+            "echo": true,
+            "focus": true,
+            "showReuseMessage": true,
+            "clear": false
+        },
+        "options": {
+            "cwd": "${workspaceFolder}/pyocd", 
+        },
+        "problemMatcher": [],
+        "isBackground": true,
+        "detail": "使用pyOCD查看RTT打印"
+    }
+    ]
+}

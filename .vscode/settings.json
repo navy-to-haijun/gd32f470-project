@@ -1,9 +1,46 @@
 {
-    "cortex-debug.liveWatchRefreshRate": 500,
-    "cortex-debug.armToolchainPath": "/home/haijun/software/gcc-arm-none-eabi/gcc-arm-none-eabi-10-2020-q4-major/bin",
-    "cortex-debug.variableUseNaturalFormat": true,
+    // "cortex-debug.liveWatchRefreshRate": 500,
+    // "cortex-debug.armToolchainPath": "/home/haijun/software/gcc-arm-none-eabi/gcc-arm-none-eabi-10-2020-q4-major/bin",
+    // "cortex-debug.armToolchainPath": "C:/Users/haijun/Desktop/123/gcc-arm-none-eabi-10.3-2021.10/bin/",
+    // "cortex-debug.variableUseNaturalFormat": true,
     "files.associations": {
         "drv_usb_hw.h": "c",
         "main.h": "c"
-    }
+    },
+    // 是否显示任务
+    "VsCodeTaskButtons.showCounter": true,
+    // 按钮列表
+    "VsCodeTaskButtons.tasks": [
+        {
+            // 按钮名称
+            "label": "🛠️",
+            // 关联任务
+            "task": "CMake Configure",
+            // 鼠标悬停提示
+            "tooltip": "Start cmake Configure",
+            // "color": "warning",
+        },
+        {
+            "label": "🚀 ",
+            "task": "CMake Build",
+            "tooltip": "Build the project",
+        },
+        {
+            "label": "📥",
+            "task": "flash-openocd",
+            "tooltip": "dowmnload bin file to flash",
+        },
+        {
+            "label": "🧹",
+            "task": "CMake Clean",
+            "tooltip": "Clean the project",
+        },
+        {
+            "label": "🖨️",
+            "task": "RTT Print via pyOCD",
+            "tooltip": "print rtt info",
+        }
+    ]
+    
 }
+

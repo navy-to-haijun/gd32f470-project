@@ -16,8 +16,17 @@ uint8_t *ptr[64];
 uint8_t mempool_store[1024];
 struct mempool mp_obj;
 
+int a = 0;
+typedef struct{
+    int a;
+    float b;
+}test_t;
+
+test_t test1;
 int main(void)
 {
+    test1.a = 0;
+    test1.b = 0.1;
     int8_t  err;
     nvic_priority_group_set(NVIC_PRIGROUP_PRE2_SUB2);
     systick_config();
@@ -69,12 +78,13 @@ int main(void)
     
    while(1)
    {
-
+        test1.a++;
+        test1.b+=0.1;
 		gpio_bit_toggle(GPIOD, GPIO_PIN_7);
-		delay_1ms(50);
+		delay_1ms(500);
 		gpio_bit_toggle(GPIOE, GPIO_PIN_3);
-        delay_1ms(50);
-        // a++;    
-		// SEGGER_RTT_printf(0, "a = %d\n", a);
+        delay_1ms(500); 
+		SEGGER_RTT_printf(0, "a = %d\t", test1.a);
+        SEGGER_RTT_printf(0, "b = %x\n", test1.b);
    }
 }
