@@ -1,0 +1,59 @@
+# 将common改为接口库，只包含头文件信息
+add_library(COMMON INTERFACE)
+
+message("commm的路径: ${CMAKE_CURRENT_LIST_DIR}")
+
+# 添加头文件目录（INTERFACE表示使用此库的目标需要这些头文件）
+target_include_directories(COMMON INTERFACE
+    ${CMAKE_CURRENT_LIST_DIR}/3rdPary/RTT
+
+    ${CMAKE_CURRENT_LIST_DIR}/3rdPary/ringbuffer 
+
+    ${CMAKE_CURRENT_LIST_DIR}/drive/LED
+    ${CMAKE_CURRENT_LIST_DIR}/drive/USART 
+
+    ${CMAKE_CURRENT_LIST_DIR}/Firmware/GD32F4xx_standard_peripheral/Include
+    ${CMAKE_CURRENT_LIST_DIR}/Firmware/CMSIS
+    ${CMAKE_CURRENT_LIST_DIR}/Firmware/CMSIS/GD/GD32F4xx/Include
+)
+# # 屏蔽头文件中未使用函数的警告
+# target_compile_options(COMMON INTERFACE 
+#         -Wno-unused-function
+#     )
+
+
+
+# 宏定义也作为接口传递
+target_compile_definitions(COMMON INTERFACE
+    USE_STDPERIPH_DRIVER
+    GD32F470
+)
+# 统一替换__weak=宏  相当于 #define __weak __attribute__((weak))
+target_compile_definitions(COMMON INTERFACE 
+        __weak=__attribute__\(\(weak\)\)
+)
+
+# 创建一个新的目标来保存源文件信息（用于在app中编译）
+add_library(common_sources INTERFACE)
+
+# 收集所有源文件
+file(GLOB_RECURSE COMMON_SRC
+    ${CMAKE_CURRENT_LIST_DIR}/**/*.c
+)
+
+# 排除部分源文件
+list(REMOVE_ITEM COMMON_SRC
+
+)
+
+# 屏蔽源文件中未使用变量的警告
+# set_source_files_properties(${COMMON_SRC} PROPERTIES COMPILE_FLAGS -Wno-unused-variable)
+
+
+# 添加汇编文件
+list(APPEND COMMON_SRC
+    ${CMAKE_CURRENT_LIST_DIR}/Firmware/startup_gd32f4xx.s
+)
+
+# 将源文件设置为接口属性（app可以通过这个属性获取源文件列表）
+set_property(TARGET common_sources PROPERTY INTERFACE_SOURCES ${COMMON_SRC})

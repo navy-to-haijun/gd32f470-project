@@ -105,7 +105,7 @@ lwrb_sz_t lwrb_write(lwrb_t* buff, const void* data, lwrb_sz_t btw)
 
     /*将读指针写到buffer的结构体中，确保其他的地方的操作访问到读指针的中间变量*/
     buff->w_ptr = w_ptr;
-    LWRB_STORE(buff->w_ptr, , memory_order_release);
+    // LWRB_STORE(buff->w_ptr, memory_order_release);
 
     return 1;
 }

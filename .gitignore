@@ -1,4 +1,6 @@
 # 忽视文件
 Debug/
 settings/
+build/
+output/
 *ewd

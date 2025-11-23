@@ -47,6 +47,10 @@ int fputc(int ch, FILE *f)
     while(RESET == usart_flag_get(USART0, USART_FLAG_TBE));
     return ch;
 }
+void *_sbrk(ptrdiff_t incr) {
+    
+}
+
 #endif
 
 

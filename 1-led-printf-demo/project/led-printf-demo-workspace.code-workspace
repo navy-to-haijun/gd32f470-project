@@ -1,0 +1,110 @@
+{
+	// 设置包含的文件夹并为每个文件夹设置名称
+	// 注意${workspaceFolder}为第一个文件夹的路径
+	"folders": [
+		{
+			"name": "1-led-printf-demo",
+			"path": "../../1-led-printf-demo"
+		},
+		{
+			"name": "common",
+			"path": "../../common"
+		}
+	],
+	// 	设置任务
+	"tasks": {
+		"version": "2.0.0",
+		"tasks": [
+			// cmake 构建任务
+			{
+				"label": "cmake config",			// 任务名称
+				"type": "shell",					// 终端执行
+				"command": "cmake",					// 命令
+				// 参数
+				"args": [
+					"-S", "${workspaceFolder}/project",							// 源码，指向顶层cmakelist.txt
+					"-B", "${workspaceFolder}/project/build",					// 构建目录
+					// "-G", "Ninja"	,										// 生成器
+					"-G", "MinGW Makefiles",
+					// "-DCMAKE_MAKE_PROGRAM=C:/Users/haijun/Desktop/build/vscode-cmake/tools/ninja-win/ninja.exe" // 指定make程序
+					"-DCMAKE_MAKE_PROGRAM=mingw32-make"
+				],
+				// 指定工作目录
+				// "options": {
+				// 	"cwd": "${workspaceFolder}",
+				// 	"env": {
+				// 		"PATH": "${env:PATH}"
+				// 	}
+				// },
+				"detail": "构建cmake工程"
+			},
+			// 编译工程
+			{
+				"label": "cmake build",
+				"type": "shell",
+				"command": "cmake",
+				"args": [
+					"--build", "${workspaceFolder}/project/build",
+					"--target", "all",
+					"-j8",
+				],
+				"options": {
+					"cwd": "${workspaceFolder}",
+				},
+				// 指定任务组 ctr+shift + b 直接运行
+				"group": {
+					"kind": "build",
+					"isDefault": true
+				},
+				// 编译错误提示
+				"problemMatcher": "$gcc",
+				"detail": "编译cmake工程"
+			},
+			// 清除编译缓存
+			{
+				"label": "cmake clean",
+				"type": "shell",
+				"command": "cmake",
+				"args": [
+					"--build", "${workspaceFolder}/project/build",
+					"--target", "clean"
+				],
+				"options": {
+					"cwd": "${workspaceFolder}",
+				},
+				"detail": "清除编译缓存"
+			}
+		]
+	},
+	"settings": {
+		// 配置C/C++ 插件：；利用compile_commands.json自动包含头文件和宏定义
+		"C_Cpp.default.compileCommands": "${workspaceFolder}/project/build/compile_commands.json",
+		"C_Cpp.default.intelliSenseMode": "gcc-arm",
+		"C_Cpp.default.cStandard": "c11",
+
+		// 配置任务按钮插件
+		"VsCodeTaskButtons.showCounter": false,
+		"VsCodeTaskButtons.tasks": [
+			{
+				"label": "⚙️",
+				"task": "cmake config",
+				"tooltip": "构建工程"
+			},
+			{
+				"label": "🛠️",					// 按钮名称
+				"task": "cmake build",			// 关联任务
+				"tooltip": "编译工程"			// 鼠标悬停提示
+			},
+			{
+				"label": "🧹",
+				"task": "cmake clean",
+				"tooltip": "清除编译缓存"
+			},
+		],
+		// "files.associations": {
+		// 	"segger_rtt.h": "c",
+		// 	"stdio.h": "c",
+		// 	"typeinfo": "c"
+		// }
+	},
+}
